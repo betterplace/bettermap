@@ -32,7 +32,19 @@ Map = {
       Map.google_map = new google.maps.Map(document.getElementById("map"), mapOptions);
       Map.google_map.mapTypes.set(layer, new google.maps.StamenMapType(layer));
     }
+  },
+
+  clearOldMarkers: function() {
+    for (var n = 0; n < Map.markers.length; n++) {
+      marker = Map.markers[n];
+
+      if(isOlderThan24hours(marker.created_at)){
+        Map.markers.remove(n)
+        marker.setMap(null);
+      }
+    }
   }
+
 }
 
 
