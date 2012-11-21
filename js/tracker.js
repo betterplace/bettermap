@@ -1,7 +1,7 @@
 console.log(new Date());
 
 (function(){
-    env = "staging";
+    env = "production";
 
     Pusher.log = function(msg) {
       if(window.console && window.console.log) {
