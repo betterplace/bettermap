@@ -19,19 +19,19 @@
  * distributed under the License is distributed on an 'AS IS' BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
- * limitations under the License. 
+ * limitations under the License.
  */
 
 var StyledIconTypes = {};
 var StyledMarker, StyledIcon;
- 
+
 (function() {
   var bu_ = 'http://chart.apis.google.com/chart?chst=';
   var gm_ = google.maps;
   var gp_ = gm_.Point;
   var ge_ = gm_.event;
   var gmi_ = gm_.MarkerImage;
-  
+
 
   /**
   * This class is an extended version of google.maps.Marker. It allows
@@ -45,10 +45,11 @@ var StyledMarker, StyledIcon;
     me.bindTo('icon',ci);
     me.bindTo('shadow',ci);
     me.bindTo('shape',ci);
+    me.created_at = styledMarkerOptions.created_at;
     me.setOptions(styledMarkerOptions);
   };
   StyledMarker.prototype = new gm_.Marker();
-  
+
   /**
   * This class stores style information that can be applied to StyledMarkers.
   * @extends google.maps.MVCObject
@@ -125,7 +126,7 @@ var StyledMarker, StyledIcon;
     }
   };
   StyledIcon.prototype = new gm_.MVCObject();
-  
+
   /**
   * StyledIconType
   * This class holds functions for building the information needed to style markers.
@@ -156,9 +157,9 @@ var StyledMarker, StyledIcon;
   * @param {Number} height The height of the icon image.
   * @return {google.maps.MarkerShape}
   */
-  
+
   StyledIconTypes.CLASS = {};
-  
+
   StyledIconTypes.MARKER = {
     defaults: {
       text:'',
