@@ -5,21 +5,49 @@
   <title>Betterplace realtime donations</title>
   <meta name="description" content="Realtime Visitor Tracker Example" />
   <link rel="stylesheet" href="css/styles.css?v=1.0" />
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
-<body>
 
-  <div id="map"></div>
-
-  <script>
-    var APP_KEY = 'ec3923c4e38951e7f7c7';
-  </script>
   <script src="http://js.pusher.com/1.12/pusher.min.js"></script>
   <script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.1.3"></script>
   <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/donation_detail_view.js"></script>
+
+  <script>
+    var APP_KEY = 'ec3923c4e38951e7f7c7';
+  </script>
+
+
+
+
+</head>
+<body>
+  <header>
+    <div class="img_container">
+      <img alt="betterplace.org" src="http://asset1.betterplace.org/assets/logos/layout-logo.betterplace-d7a9dcadac4f396bdec936891e1b005b.png">
+    </div>
+    <h1>Recent Project Donations</h1>
+    <div style="clear:both"/>
+  </header>
+
+  <div id="map"></div>
+
+  <div id="last_donation">
+    <div class="left">
+      <h3>last donation: <span class="time"> </span> </h3>
+      <h2></h2>
+
+    </div>
+    <div class="amount"></div>
+    <div style="clear:both"/>
+  </div>
+
+
+
+
+
+
+
   <script src="js/map.js"></script>
   <script src="js/tracker.js"></script>
   <script src="js/StyledMarker.js"></script>

@@ -1,5 +1,3 @@
-console.log(new Date());
-
 (function(){
     env = "production";
 
@@ -19,7 +17,10 @@ console.log(new Date());
       Map.createMap();
       Map.clearOldMarkers();
     });
-    channel.bind('new_donation', Map.newHitReceived);
+    channel.bind('new_donation', function(data){
+      Map.newHitReceived(data)
+      DonationDetailView.update(data)
+    });
 
 })()
 
