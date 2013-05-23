@@ -33,7 +33,7 @@ Map = {
       Map.google_map.mapTypes.set(layer, new google.maps.StamenMapType(layer));
 
 
-      var map_height = $(window).height() - $("header").height() - $("#last_donation").height();
+      var map_height = $(window).height() - $("header").height() - $("#last_donation").height() - 3; //3 is for #last_donation border
       $('#map').css({'height': map_height + "px", 'width': '100%'});
     }
   },
