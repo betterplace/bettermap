@@ -22,8 +22,11 @@ DonationDetailView = {
       console.error("displaying the wrong donation data!!!");
     }
 
+    var amount = DonationDetailView.last_donation.amount;
+    amount = (amount > 0) ? amount : 1;
+
     $("#last_donation      h2").html(project.title)
-    $("#last_donation .amount").html("€" + DonationDetailView.last_donation.amount)
+    $("#last_donation .amount").html("€" + amount)
     $("#last_donation   .time").html(moment(Date.now()).format("dddd, MMMM Do YYYY, h:mm:ss a"))
   }
 

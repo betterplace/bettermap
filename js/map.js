@@ -3,12 +3,13 @@ Map = {
   newHitReceived: function(data) {
     var latLng = new google.maps.LatLng(data.lat, data.lng);
 
+    var amount = (data.amount > 0) ? data.amount : 1;
     var marker = new StyledMarker({
       styleIcon: new StyledIcon(
         StyledIconTypes.BUBBLE,
         {
           color:"fff",
-          text: "€" + data.amount
+          text: "€" + amount
         }),
       position: latLng,
       map: Map.google_map,
