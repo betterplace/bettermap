@@ -1,7 +1,7 @@
 
 
 DonationDetailView = {
-  betterplace_api : "http://www.betterplace.org/en/api_v4/",
+  betterplace_api : "https://www.betterplace.org/en/api_v4/",
 
   update : function(data) {
     DonationDetailView.last_donation = data
