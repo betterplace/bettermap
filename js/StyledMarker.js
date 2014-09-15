@@ -25,8 +25,22 @@
 var StyledIconTypes = {};
 var StyledMarker, StyledIcon;
 
+/**
+ * @param {Function} childCtor Child class.
+ * @param {Function} parentCtor Parent class.
+ */
+function inherits(childCtor, parentCtor) {
+  /** @constructor */
+  function tempCtor() {};
+  tempCtor.prototype = parentCtor.prototype;
+  childCtor.superClass_ = parentCtor.prototype;
+  childCtor.prototype = new tempCtor();
+  /** @override */
+  childCtor.prototype.constructor = childCtor;
+}
+
 (function() {
-  var bu_ = 'http://chart.apis.google.com/chart?chst=';
+  var bu_ = 'https://chart.googleapis.com/chart?chst=';
   var gm_ = google.maps;
   var gp_ = gm_.Point;
   var ge_ = gm_.event;
@@ -40,15 +54,15 @@ var StyledMarker, StyledIcon;
   * @param {StyledMarkerOptions} StyledMarkerOptions The options for the Marker
   */
   StyledMarker = function(styledMarkerOptions) {
+    gm_.Marker.call(this);
     var me=this;
     var ci = me.styleIcon = styledMarkerOptions.styleIcon;
     me.bindTo('icon',ci);
     me.bindTo('shadow',ci);
     me.bindTo('shape',ci);
-    me.created_at = styledMarkerOptions.created_at;
     me.setOptions(styledMarkerOptions);
   };
-  StyledMarker.prototype = new gm_.Marker();
+  inherits(StyledMarker, gm_.Marker);
 
   /**
   * This class stores style information that can be applied to StyledMarkers.
