@@ -43,7 +43,7 @@ Map = {
     for (var n = Map.markers.length -1; n >= 0; n--) {
       marker = Map.markers[n];
 
-      if(isOlderThan24hours(marker.created_at)){
+      if(isOlderThan24hours(marker.get("created_at"))){
         Map.markers.remove(n);
         marker.setMap(null);
       }
